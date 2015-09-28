@@ -55,7 +55,8 @@ if ( ! class_exists('wpDogeMode') ) {
 							font-family:'Comic Sans', 'Comic Sans MS', 'Chalkboard', 'ChalkboardSE-Regular', 'Marker Felt', 'Purisa', 'URW Chancery L', cursive !important
 						}
 						.wpdm-overlay{
-							position: fixed;left:0;right:0;top:0;bottom:0;overflow:hidden
+							position: fixed;left:0;right:0;top:0;bottom:0;overflow:hidden;
+							z-index: 99999;
 						}
 						.wpdm-overlay span {
 							opacity: 1;
