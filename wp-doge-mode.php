@@ -40,42 +40,46 @@ add_action( 'activate_' . WPDM_PLUGIN_BASENAME, 'wpdm_install' );
 # on installation
 function wpdm_install() {}
 
-class wpDogeMode {
 
-    function __construct() {
-        add_action( 'admin_head', array( $this, 'style' ) );
-        add_action( 'admin_bar_menu', array( $this, 'indicator' ), 100 );
-        add_action( 'wp_enqueue_scripts', array($this, 'enqueue' ) );
-    }
+if ( ! class_exists('wpDogeMode') ) {
 
-    private static function style() {
-        echo '<style type="text/css">#wp-admin-bar-wpdm-indicator.active { background: #D9CE9E; }</style>';
-    }
+  class wpDogeMode {
 
-    private static function enqueue() {
-        wp_enqueue_style( WPDM_DOMAIN,  WPDM_PLUGIN_URL . '/doge.css');
-        wp_enqueue_script( WPDM_DOMAIN, WPDM_PLUGIN_URL . '/doge.min.js', array('jquery'), WPDM_VERSION, true );
-        $doge = array(
-		        'img_url' => WPDM_PLUGIN_URL . '/images/'
-        );
-        wp_localize_script(WPDM_DOMAIN, 'img_url', $doge);
-    }
+      function __construct() {
+          add_action( 'admin_head', array( $this, 'style' ) );
+          add_action( 'admin_bar_menu', array( $this, 'indicator' ), 100 );
+          add_action( 'wp_enqueue_scripts', array($this, 'enqueue' ) );
+      }
 
-    private static function indicator($wp_admin_bar) {
-        $indicator = array(
-            'id' => WPDM_DOMAIN . '-indicator',
-            'title' => _x('Doge Mode: Active', WPDM_PLUGIN_NAME),
-            'parent' => false,
-            'href' => get_admin_url(null, 'options-general.php?page=wp-maintenance-mode'),
-                'meta' => array(
-                'title' => _x('Doge Mode: Active', WPDM_PLUGIN_NAME),
-                'class' => 'active',
-            )
-        );
-        $wp_admin_bar->add_node($indicator);
-    }
+      private static function style() {
+          echo '<style type="text/css">#wp-admin-bar-wpdm-indicator.active { background: #D9CE9E; }</style>';
+      }
 
+      private static function enqueue() {
+          wp_enqueue_style( WPDM_DOMAIN,  WPDM_PLUGIN_URL . '/doge.css');
+          wp_enqueue_script( WPDM_DOMAIN, WPDM_PLUGIN_URL . '/doge.min.js', array('jquery'), WPDM_VERSION, true );
+          $doge = array(
+  		        'img_url' => WPDM_PLUGIN_URL . '/images/'
+          );
+          wp_localize_script(WPDM_DOMAIN, 'wpdm', $doge);
+      }
+
+      private static function indicator($wp_admin_bar) {
+          $indicator = array(
+              'id' => WPDM_DOMAIN . '-indicator',
+              'title' => _x('Doge Mode: Active', WPDM_PLUGIN_NAME),
+              'parent' => false,
+              'href' => get_admin_url(null, 'options-general.php?page=wp-maintenance-mode'),
+                  'meta' => array(
+                  'title' => _x('Disable plugin to disable Doge Mode', WPDM_PLUGIN_NAME),
+                  'class' => 'active',
+              )
+          );
+          $wp_admin_bar->add_node($indicator);
+      }
+
+  }
+
+  // init
+  $wpDogeMode = new wpDogeMode();
 }
-
-// init
-$wpDogeMode = new wpDogeMode();

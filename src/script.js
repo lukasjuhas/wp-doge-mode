@@ -23,17 +23,17 @@
     doge.append('<div class="wpdb-overlay" />');
 
     const potatos = [
-      'http://i3.kym-cdn.com/photos/images/original/000/581/296/c09.jpg',
-      'http://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg',
-      'http://images.says.com/uploads/story_source/source_image/257750/522b.jpg',
-      'http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-1600x1200.jpg',
-      'http://dogecoin.com/imgs/doge.png',
-      'http://www.freeallimages.com/wp-content/uploads/2014/09/doge-original-4.jpg',
-      'http://www.freeallimages.com/wp-content/uploads/2014/09/doge-original-3.jpg',
-      'http://www.freeallimages.com/wp-content/uploads/2014/09/doge-original-2.jpg',
-      'http://www.freeallimages.com/wp-content/uploads/2014/09/doge-original-1.jpg',
-      'http://www.freeallimages.com/wp-content/uploads/2014/09/doge-original-3.jpg',
-      'http://www.freeallimages.com/wp-content/uploads/2014/09/doge-original-5.jpg',
+      wpdm.img_url + 'doge-1.jpg',
+      wpdm.img_url + 'doge-2.jpg',
+      wpdm.img_url + 'doge-3.jpg',
+      wpdm.img_url + 'doge-4.jpg',
+      wpdm.img_url + 'doge-5.jpg',
+      wpdm.img_url + 'doge-6.jpg',
+      wpdm.img_url + 'doge-7.jpg',
+      wpdm.img_url + 'doge-8.jpg',
+      wpdm.img_url + 'doge-9.jpg',
+      wpdm.img_url + 'doge-10.jpg',
+      wpdm.img_url + 'doge-11.jpg',
     ];
     $('img').each(function imageDogenizator() {
       $(this).attr('src', potatos[Math.floor(Math.random() * potatos.length)]);
