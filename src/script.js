@@ -45,7 +45,7 @@
         + randomer(dogeMod) +
         '</span>'
       );
-    }, 700);
+    }, 1500);
   };
 })(jQuery);
 

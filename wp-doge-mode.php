@@ -34,29 +34,67 @@ define( 'WPDM_PLUGIN_NAME', substr( WPDM_PLUGIN_BASENAME, 0, strrpos( WPDM_PLUGI
 define( 'WPDM_DOMAIN', 'wpdm' );
 define( 'WPDM_CONTACT_EMAIL', 'hello@lukasjuhas.com' );
 
-// Make sure we don't expose any info if called directly
 if ( !function_exists( 'add_action' ) ) {
 	echo 'wow, much direct? Amaze...';
 	exit;
 }
-
 
 if ( ! class_exists('wpDogeMode') ) {
 
   class wpDogeMode {
 
       function __construct() {
-          add_action( 'admin_head', array( $this, 'style' ) );
+          add_action( 'wp_head', array( $this, 'style' ) );
           add_action( 'admin_bar_menu', array( $this, 'indicator' ), 100 );
           add_action( 'wp_enqueue_scripts', array($this, 'enqueue' ) );
       }
 
       static public function style() {
-          echo '<style type="text/css">#wp-admin-bar-wpdm-indicator.active { background: #D9CE9E; } #wp-admin-bar-wpdm-indicator.active a { color: black; }</style>';
+          echo "<style type='text/css'>
+						body{
+							font-family:'Comic Sans', 'Comic Sans MS', 'Chalkboard', 'ChalkboardSE-Regular', 'Marker Felt', 'Purisa', 'URW Chancery L', cursive !important
+						}
+						.wpdm-overlay{
+							position: fixed;left:0;right:0;top:0;bottom:0;overflow:hidden
+						}
+						.wpdm-overlay span {
+							opacity: 1;
+							-webkit-animation: fadein 0.5s;
+				       -moz-animation: fadein 0.5s;
+				        -ms-animation: fadein 0.5s;
+				         -o-animation: fadein 0.5s;
+				            animation: fadein 0.5s;
+						}
+						#wp-admin-bar-wpdm-indicator.active{
+							background:#D9CE9E
+						}
+						#wp-admin-bar-wpdm-indicator.active a{
+							color:black
+						}
+						@keyframes fadein {
+						    from { opacity: 0; }
+						    to   { opacity: 1; }
+						}
+						@-moz-keyframes fadein {
+						    from { opacity: 0; }
+						    to   { opacity: 1; }
+						}
+						@-webkit-keyframes fadein {
+						    from { opacity: 0; }
+						    to   { opacity: 1; }
+						}
+						@-ms-keyframes fadein {
+						    from { opacity: 0; }
+						    to   { opacity: 1; }
+						}
+						@-o-keyframes fadein {
+						    from { opacity: 0; }
+						    to   { opacity: 1; }
+						}
+					</style>";
       }
 
       static public function enqueue() {
-          wp_enqueue_style( WPDM_DOMAIN,  WPDM_PLUGIN_URL . 'doge.css');
           wp_enqueue_script( WPDM_DOMAIN, WPDM_PLUGIN_URL . 'doge.min.js', array('jquery'), WPDM_VERSION, true );
           $doge = array(
   		        'img_url' => WPDM_PLUGIN_URL . '/images/'
