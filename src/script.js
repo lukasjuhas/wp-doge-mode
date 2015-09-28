@@ -1,7 +1,7 @@
 // based on https://github.com/idiot/doge
 (function dogeMode($) {
   $.doge = function things($things) {
-    const words = $.extend(['doge', 'shibe', 'excite', 'impress', 'skill', 'warn'], $things);
+    const words = $.extend(['doge', 'shibe', 'excite', 'impress', 'skill', 'amaze', 'website'], $things);
 
     const r = function random(arr) {
       let thing;

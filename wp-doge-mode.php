@@ -34,11 +34,11 @@ define( 'WPDM_PLUGIN_NAME', substr( WPDM_PLUGIN_BASENAME, 0, strrpos( WPDM_PLUGI
 define( 'WPDM_DOMAIN', 'wpdm' );
 define( 'WPDM_CONTACT_EMAIL', 'hello@lukasjuhas.com' );
 
-# hooks
-add_action( 'activate_' . WPDM_PLUGIN_BASENAME, 'wpdm_install' );
-
-# on installation
-function wpdm_install() {}
+// Make sure we don't expose any info if called directly
+if ( !function_exists( 'add_action' ) ) {
+	echo 'wow, much direct? Amaze...';
+	exit;
+}
 
 
 if ( ! class_exists('wpDogeMode') ) {
