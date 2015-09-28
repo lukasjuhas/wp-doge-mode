@@ -20,6 +20,8 @@
       'wow', 'wow',
     ];
 
+    doge.append('<div class="wpdb-overlay" />');
+
     const potatos = [
       'http://i3.kym-cdn.com/photos/images/original/000/581/296/c09.jpg',
       'http://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg',
