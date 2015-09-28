@@ -3,7 +3,7 @@
   $.doge = function things($things) {
     const words = $.extend(['doge', 'shibe', 'excite', 'impress', 'skill', 'amaze', 'website'], $things);
 
-    const r = function random(arr) {
+    function randomer(arr) {
       let thing;
       if (arr) {
         thing = arr;
@@ -11,16 +11,16 @@
         thing = words;
       }
       return thing[Math.floor(Math.random() * thing.length)];
-    };
+    }
 
     const dogeMod = [
-      'wow', 'such ' + r(), 'very ' + r(), 'much ' + r(),
-      'wow', 'such ' + r(), 'very ' + r(), 'much ' + r(),
-      'so ' + r(), 'many ' + r(), 'want ' + r(),
+      'wow', 'such ' + randomer(), 'very ' + randomer(), 'much ' + randomer(),
+      'wow', 'such ' + randomer(), 'very ' + randomer(), 'much ' + randomer(),
+      'so ' + randomer(), 'many ' + randomer(), 'want ' + randomer(),
       'wow', 'wow',
     ];
 
-    doge.append('<div class="wpdb-overlay" />');
+    $('body').append('<div class="wpdm-overlay" />');
 
     const potatos = [
       wpdm.img_url + 'doge-1.jpg',
@@ -42,9 +42,11 @@
     setInterval(function dogeModeInit() {
       $('.wpdm-overlay').append(
         '<span style="position: absolute; left: ' + Math.random()  * 100 + '%;top: ' + Math.random()  * 100 + '%;font-size: ' + Math.max(24, (Math.random() * 50 + 50)) + 'px; color: rgb(' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ');">'
-        + r(dogeMod) +
+        + randomer(dogeMod) +
         '</span>'
       );
     }, 700);
   };
 })(jQuery);
+
+jQuery(jQuery.doge);

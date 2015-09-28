@@ -14,8 +14,8 @@ gulp.task('browserify', function() {
     .bundle()
     .on("error", function (err) { console.log("Error: " + err.message); })
     .pipe(source('doge.min.js'))
-    .pipe(buffer())
-    .pipe(uglify())
+    // .pipe(buffer())
+    // .pipe(uglify())
     .pipe(gulp.dest('./'));
 });
 

@@ -8,3 +8,12 @@ body {
   top: 0;
   bottom: 0;
 }
+
+#wp-admin-bar-wpdm-indicator {
+  &.active {
+    background: #D9CE9E;
+    a {
+      color: black;
+    }
+  }
+}

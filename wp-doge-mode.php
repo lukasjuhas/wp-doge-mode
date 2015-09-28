@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Doge Mode
 * Plugin URI: https://github.com/lukasjuhas/wp-doge-mode
-* Description: Doge Mode for Wordpress. Turns your website in to doge mode.
+* Description: Turns your website in to doge mode.
 * Version: 1.0
 * Author: Lukas Juhas
 * Author URI: http://lukasjuhas.com
@@ -51,20 +51,20 @@ if ( ! class_exists('wpDogeMode') ) {
           add_action( 'wp_enqueue_scripts', array($this, 'enqueue' ) );
       }
 
-      private static function style() {
-          echo '<style type="text/css">#wp-admin-bar-wpdm-indicator.active { background: #D9CE9E; }</style>';
+      static public function style() {
+          echo '<style type="text/css">#wp-admin-bar-wpdm-indicator.active { background: #D9CE9E; } #wp-admin-bar-wpdm-indicator.active a { color: black; }</style>';
       }
 
-      private static function enqueue() {
-          wp_enqueue_style( WPDM_DOMAIN,  WPDM_PLUGIN_URL . '/doge.css');
-          wp_enqueue_script( WPDM_DOMAIN, WPDM_PLUGIN_URL . '/doge.min.js', array('jquery'), WPDM_VERSION, true );
+      static public function enqueue() {
+          wp_enqueue_style( WPDM_DOMAIN,  WPDM_PLUGIN_URL . 'doge.css');
+          wp_enqueue_script( WPDM_DOMAIN, WPDM_PLUGIN_URL . 'doge.min.js', array('jquery'), WPDM_VERSION, true );
           $doge = array(
   		        'img_url' => WPDM_PLUGIN_URL . '/images/'
           );
           wp_localize_script(WPDM_DOMAIN, 'wpdm', $doge);
       }
 
-      private static function indicator($wp_admin_bar) {
+      static public function indicator($wp_admin_bar) {
           $indicator = array(
               'id' => WPDM_DOMAIN . '-indicator',
               'title' => _x('Doge Mode: Active', WPDM_PLUGIN_NAME),
