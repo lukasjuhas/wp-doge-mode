@@ -12,7 +12,7 @@ Turns your site in to Doge Mode!
 
 == Description ==
 
-Replaces are images with doge, floating doge phases, doge font!
+Replaces all images with doge, floating doge phases, font changes to doge font (comic sans and family)!
 
 == Installation ==
 
