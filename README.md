@@ -1,4 +1,6 @@
 # Doge Mode
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/lukasjuhas/wp-doge-mode.svg)](https://greenkeeper.io/)
 Wordpress Doge Mode plugin.
 
 Feel free to submit new words.
